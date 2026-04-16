@@ -289,7 +289,7 @@ function App() {
 
         <section id="skills" className="py-20">
           <div className="section-wrap">
-            <SectionTitle title="Skills" subtitle="Competences techniques organisees par categories, puis certifications." />
+            <SectionTitle title="Skills" subtitle="Competences techniques organisees par categories, puisscertifications." />
             <div className="grid gap-5 md:grid-cols-2">
               {skills.categories.map((category, index) => (
                 <motion.article
