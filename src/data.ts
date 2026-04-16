@@ -48,6 +48,7 @@ export const experiences = [
     title: "Stagiaire Projet de Fin d'Etudes - LEONI",
     period: '02/2025 - 06/2025',
     location: 'Sousse',
+    demoUrl: '/demos/leoni-demo.mp4',
     details: [
       "Conception d'un systeme d'extraction automatique d'attributs techniques depuis des documents industriels.",
       'Developpement d’un chatbot RAG (LangChain + Qwen) connecte a une base SQL et un stockage vectoriel.',

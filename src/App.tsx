@@ -159,7 +159,7 @@ function App() {
                     <FaDownload />
                     Download
                   </a>
-                  <button type="button" className="fancy-button-ghost" onClick={() => setIsResumeOpen(true)}>
+                  <button type="button" className="fancy-button-accent" onClick={() => setIsResumeOpen(true)}>
                     Preview
                   </button>
                 </div>
@@ -263,7 +263,14 @@ function App() {
                   transition={{ delay: index * 0.07 }}
                   className="panel border-blue-100"
                 >
-                  <h4 className="font-semibold text-slate-900">{exp.title}</h4>
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <h4 className="font-semibold text-slate-900">{exp.title}</h4>
+                    {'demoUrl' in exp && exp.demoUrl ? (
+                      <a href={exp.demoUrl} target="_blank" rel="noreferrer" className="fancy-button-accent px-4 py-2 text-sm">
+                        Preview
+                      </a>
+                    ) : null}
+                  </div>
                   <p className="mt-1 text-sm text-slate-500">
                     {exp.period} - {exp.location}
                   </p>
