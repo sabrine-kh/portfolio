@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 700px at 10% -20%, rgba(59, 130, 246, 0.15), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(99, 102, 241, 0.12), transparent 55%),
+    #f8fbff;
+  color: #0f172a;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.2);
+  color: #0f172a;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #93c5fd #e2e8f0;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #93c5fd, #60a5fa);
+  border-radius: 999px;
+}
+
+@layer components {
+  .section-wrap {
+    @apply mx-auto w-[92%] max-w-6xl;
+  }
+
+  .panel {
+    @apply relative overflow-hidden rounded-3xl border border-white/70 bg-white/90 p-6 shadow-soft backdrop-blur-sm transition-all duration-300;
+  }
+
+  .panel:hover {
+    @apply -translate-y-1 shadow-[0_18px_45px_rgba(37,99,235,0.14)];
+  }
+
+  .panel::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    border-radius: 1.5rem;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.5), rgba(59, 130, 246, 0.12), rgba(255, 255, 255, 0.3));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .panel:hover::before {
+    opacity: 1;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold tracking-tight text-slate-900 md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mt-2 max-w-3xl text-slate-600;
+  }
+
+  .soft-chip {
+    @apply rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700;
+  }
+
+  .nav-link {
+    @apply rounded-full px-3 py-1.5 font-medium text-slate-700 transition hover:bg-blue-50 hover:text-blue-700;
+  }
+
+  .nav-link:hover {
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.16);
+  }
+
+  .fancy-button {
+    @apply inline-flex items-center gap-2 rounded-xl px-5 py-3 font-semibold transition duration-300;
+  }
+
+  .fancy-button-primary {
+    @apply fancy-button bg-blue-600 text-white shadow-lg shadow-blue-200 hover:-translate-y-0.5 hover:bg-blue-700;
+  }
+
+  .fancy-button-ghost {
+    @apply fancy-button border border-slate-200 bg-white/90 text-slate-700 hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700;
+  }
+
+  .hero-tag {
+    @apply inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700;
+  }
+
+  .hero-title {
+    @apply text-4xl font-extrabold leading-tight md:text-6xl;
+    text-wrap: balance;
+  }
+
+  .hero-subtitle {
+    @apply text-lg leading-relaxed text-slate-700;
+  }
+
+  .text-gradient {
+    background: linear-gradient(105deg, #0f172a 0%, #1d4ed8 45%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .journey-card {
+    background:
+      linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(239, 246, 255, 0.9)),
+      radial-gradient(500px 200px at 10% 0%, rgba(59, 130, 246, 0.13), transparent 70%);
+  }
+
+  .journey-card h3 {
+    letter-spacing: -0.02em;
+  }
+
+  .contact-link {
+    @apply flex items-center gap-3 rounded-xl border border-blue-100 bg-white/70 px-4 py-3 text-slate-700 transition hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm;
+  }
+
+  .modal-panel {
+    @apply w-full max-w-5xl overflow-hidden rounded-3xl border border-white/40 bg-white/90 shadow-[0_30px_90px_rgba(2,6,23,0.35)] backdrop-blur-xl;
+  }
+
+  .modal-header {
+    @apply flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 bg-white/70 px-4 py-3 md:px-6 md:py-4;
+  }
+
+  .modal-body {
+    @apply bg-slate-100 p-2 md:p-3;
+  }
+
+  .modal-body iframe {
+    @apply overflow-hidden rounded-2xl border border-slate-200 bg-white;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.12) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+}
